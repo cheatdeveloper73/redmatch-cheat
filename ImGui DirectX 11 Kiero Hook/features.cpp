@@ -6,11 +6,6 @@ void features::no_spread()
 	if (config::enable_no_spread && globals::local_controller)
 		globals::local_controller->fields.bulletSpread = 0.f;
 
-	/*if (globals::local_controller->fields.cam)*/
-
-	if (globals::local_controller)
-		globals::local_controller->fields.grounded = true;
-
 }
 
 void features::infinite_ammo()
@@ -126,6 +121,8 @@ void MoveMouse(int x, int y, int width, int height)
 void features::aimbot()
 {
 
+	static uint64_t last_flick_time = 0;
+
 	struct target
 	{
 		float fov;
@@ -176,10 +173,7 @@ void features::aimbot()
 			MoveMouse(target.pos.x, target.pos.y, screen_center.x, screen_center.y);
 
 			if (config::aimbot_type == 1)
-			{
-				Sleep(20);
 				MoveMouse(-target.pos.x, -target.pos.y, screen_center.x, screen_center.y);
-			}
 
 			aimbot_pos = target.world_pos;
 
