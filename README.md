@@ -9,5 +9,3 @@ Internal Redmatch 2 Cheat
 <h2>Updating</h2>
 <p>Use il2cpp dumper to get a new il2cpp.h header</p>
 <li>Done.</li>
-
-Don't take my menu and use it for your pasted p2c, thanks.
